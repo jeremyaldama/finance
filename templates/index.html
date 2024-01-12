@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+      <thead>
+        <th>
+          Symbol
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Shares
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          TOTAL
+        </th>
+      </thead>
+
+      <tbody>
+        {% for transac in transacs%}
+          <tr>
+            <td>
+              {{transac["symbol"]}}
+            </td>
+            <td>
+              {{transac["name"]}}
+            </td>
+            <td>
+              {{transac["shares"]}}
+            </td>
+            <td>
+              {{transac["price"]}}
+            </td>
+            <td>
+              {{transac["total"]}}
+            </td>
+          </tr>
+        {%endfor%}
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong>Cash</strong></td>
+          <td>{{user["cash"]}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><strong>Total</strong></td>
+          <td>{{user["total"]}}</td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
